@@ -7,39 +7,21 @@ namespace BiAccident.Models
 {
     public class NbAccidentLieux
     {
-        private string annee;
-        private List<AccidentLieux> listAccidentLieux;
+        private string annee { get; set; }
+        private List<AccidentLieux> ListAccidentLieux { get; set; }
 
         public NbAccidentLieux(string annee)
         {
-            this.Annee = annee;
+            this.annee = annee;
             this.ListAccidentLieux = new List<AccidentLieux>();
         }
-
-        public string Annee
+        public List<AccidentLieux> GetListAccidentLieux()
         {
-            get
-            {
-                return annee;
-            }
-
-            set
-            {
-                annee = value;
-            }
+            return this.ListAccidentLieux;
         }
-
-        public List<AccidentLieux> ListAccidentLieux
+        public string GetAnnee()
         {
-            get
-            {
-                return listAccidentLieux;
-            }
-
-            set
-            {
-                listAccidentLieux = value;
-            }
+            return this.annee;
         }
     }
 }

@@ -10,10 +10,36 @@ namespace BiAccident.Models
         private string num_Acc;
         private string catr;
 
+        public string Num_Acc
+        {
+            get
+            {
+                return num_Acc;
+            }
+
+            set
+            {
+                num_Acc = value;
+            }
+        }
+
+        public string Catr
+        {
+            get
+            {
+                return catr;
+            }
+
+            set
+            {
+                catr = value;
+            }
+        }
+
         public AccidentLieux(string num_Acc, string catr)
         {
-            this.num_Acc = num_Acc;
-            this.catr = catr;
+            this.Num_Acc = num_Acc;
+            this.Catr = catr;
         }
 
     }

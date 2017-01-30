@@ -182,10 +182,12 @@ namespace BiAccident.Models
                 DataReader = Command.ExecuteReader();
                 while(DataReader.Read())
                 {
-                    nbAccidentLieux.ListAccidentLieux.Add(new AccidentLieux(DataReader[0].ToString(), GetCatrt(DataReader[1].ToString())));
+                    nbAccidentLieux.GetListAccidentLieux().Add(new AccidentLieux(DataReader[0].ToString(), GetCatrt(DataReader[1].ToString())));
                 }
                 DataReader.Close();
             }
+
+            DeConnexion(Connexion);
 
             return nbAccidentLieux;
         }

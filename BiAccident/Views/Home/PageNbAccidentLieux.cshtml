@@ -1,0 +1,36 @@
+﻿@model BiAccident.ViewModels.NbAccidentLieuxViewModels
+
+@{
+    ViewBag.Title = "PageNbAccidentLieux";
+}
+
+<h2>PageNbAccidentLieux</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.ListNbAccidentLieux) {
+    <tr>
+        <td>
+            @item.GetAnnee();
+        </td>
+    </tr>
+    @foreach (var truck in item.GetListAccidentLieux())
+    {
+        <tr>
+            <td>
+                @truck.Num_Acc;
+            </td>
+            <td>
+                @truck.Catr;
+            </td>
+        </tr>
+    }
+}
+
+</table>
