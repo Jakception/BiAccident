@@ -10,6 +10,11 @@ namespace BiAccident.ViewModels
     {
         List<Models.NbAccidentLieux> listNbAccidentLieux;
 
+        public NbAccidentLieuxViewModels()
+        {
+            this.listNbAccidentLieux = new List<NbAccidentLieux>();
+        }
+
         public List<NbAccidentLieux> ListNbAccidentLieux
         {
             get
