@@ -8,23 +8,25 @@
 
 <table class="table">
     <tr>
-        <th></th>
+        <td>Année</td>
+        <td>Nombre d'accident</td>
+        <td>Lieux</td>
     </tr>
-
 @foreach (var item in Model.ListNbAccidentLieux) {
     <tr>
         <td>
-            @item.GetAnnee();
+            @item.GetAnnee()
         </td>
     </tr>
-    @foreach (var truck in item.GetListAccidentLieux())
+    foreach (var truck in item.GetListAccidentLieux())
     {
         <tr>
+            <td></td>
             <td>
-                @truck.Num_Acc;
+                @truck.Num_Acc
             </td>
             <td>
-                @truck.Catr;
+                @truck.Catr
             </td>
         </tr>
     }
