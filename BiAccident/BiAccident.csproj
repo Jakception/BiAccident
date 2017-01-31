@@ -165,8 +165,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccidentLieux.cs" />
+    <Compile Include="Models\CategUser.cs" />
     <Compile Include="Models\DataBase.cs" />
     <Compile Include="Models\NbAccidentLieux.cs" />
+    <Compile Include="Models\NbCategUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\NbAccidentLieuxViewModels.cs" />
   </ItemGroup>

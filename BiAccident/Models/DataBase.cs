@@ -136,7 +136,7 @@ namespace BiAccident.Models
         }
         public static string GetCatrt(string catr)
         {
-            string result;
+            string result = "";
 
             switch (catr)
             {
@@ -190,6 +190,33 @@ namespace BiAccident.Models
             DeConnexion(Connexion);
 
             return nbAccidentLieux;
+        }
+        public static string GetCatu(string catu)
+        {
+            string result = "";
+
+            switch (catu)
+            {
+                case "1":
+                    result = "Conducteur";
+                    break;
+                case "2":
+                    result = "Passager";
+                    break;
+                case "3":
+                    result = "Pièton";
+                    break;
+                case "4":
+                    result = "Pièton en roller ou trotinette";
+                    break;
+            }
+
+            return result;
+        }
+        public static NbAccidentLieux ReqCategUser(string annee)
+        {
+            //TO DO
+            return null;
         }
     }
 }
