@@ -42,5 +42,52 @@
 
 <table class="table">
 
+@foreach (var item in Model.ListNbAccidentLieux)
+{
+    
+    if (item.GetAnnee() == "2015")
+    {
+        <tr>
+            <td>
+                <b>
+                    2015 / 2010
+                </b>
+            </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        foreach (var truck in item.GetListAccidentLieux())
+        {
+            foreach (var item2 in Model.ListNbAccidentLieux)
+            {
+                if (item2.GetAnnee() == "2010")
+                {
+                    foreach (var machin in item2.GetListAccidentLieux())
+                    {
+                        if (machin.Catr == truck.Catr)
+                        {
+                            <tr>
+                                <td> </td>
+                                <td>
+                                    @(float.Parse(truck.Num_Acc) / float.Parse(machin.Num_Acc))
+                                </td>
+                                <td>
+                                    @truck.Catr
+                                </td>
+                                <td>@truck.Num_Acc</td>
+                                <td>@machin.Num_Acc</td>
+                            </tr>
+                        }
+
+                    }
+                }
+
+
+            }
+
+        }
+    }
+}
 
 </table>
