@@ -38,7 +38,7 @@
 
 </table>
 
-<h2>Taux d'évolution</h2>
+<h2>Taux d'évolution 2015 / 2010</h2>
 
 <table class="table">
 
@@ -48,14 +48,10 @@
     if (item.GetAnnee() == "2015")
     {
         <tr>
-            <td>
-                <b>
-                    2015 / 2010
-                </b>
-            </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td>Taux d'évolution</td>
+            <td>Lieux</td>
+            <td>Nombre d'accident 2015</td>
+            <td>Nombre d'accident 2010</td>
         </tr>
         foreach (var truck in item.GetListAccidentLieux())
         {
@@ -68,9 +64,8 @@
                         if (machin.Catr == truck.Catr)
                         {
                             <tr>
-                                <td> </td>
                                 <td>
-                                    @(float.Parse(truck.Num_Acc) / float.Parse(machin.Num_Acc))
+                                    @((float.Parse(truck.Num_Acc) / float.Parse(machin.Num_Acc)).ToString("0.00"))
                                 </td>
                                 <td>
                                     @truck.Catr
