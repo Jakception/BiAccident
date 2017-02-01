@@ -213,10 +213,140 @@ namespace BiAccident.Models
 
             return result;
         }
-        public static NbAccidentLieux ReqCategUser(string annee)
+        public static NbCategUser ReqCategUser(string annee)
         {
-            //TO DO
-            return null;
+            string messErreur = "";
+            NbCategUser nbCategUser = new NbCategUser(annee);
+
+            messErreur = ConnexionToDataBase();
+
+            if (messErreur == "")
+            {
+                Command = GetConnexion().CreateCommand();
+                Command.CommandText = "SELECT count(*) as nbAcc, catu as CategUser " +
+                                      "FROM usager " +
+                                      "WHERE Num_Acc like '" + annee + "%' " +
+                                      "GROUP BY catu; ";
+                DataReader = Command.ExecuteReader();
+                while (DataReader.Read())
+                {
+                    nbCategUser.GetListCategUser().Add(new CategUser(DataReader[0].ToString(), GetCatu(DataReader[1].ToString())));
+                }
+                DataReader.Close();
+            }
+
+            DeConnexion(Connexion);
+
+            return nbCategUser;
+        }
+        public static string GetCatv(string catv)
+        {
+            string result = "";
+
+            switch (catv)
+            {
+                case "1":
+                    result = "Bicyclette";
+                    break;
+                case "2":
+                    result = "Cyclomoteur 50cm3";
+                    break;
+                case "3":
+                    result = "Voiturette";
+                    break;
+                case "7":
+                    result = "VL Seul";
+                    break;
+                case "10":
+                    result = "VU seul 1.5T";
+                    break;
+                case "13": 
+                    result = "PL seul 3.5T";
+                    break;
+                case "14":
+                    result = "PL seul > 7.5T";
+                    break;
+                case "15":
+                    result = "PL > 3.5T + remorque";
+                    break;
+                case "16":
+                    result = "Tracteur routier seul";
+                    break;
+                case "17":
+                    result = "Tracteur routier + semi remorque";
+                    break;
+                case "20":
+                    result = "Engin Spécial";
+                    break;
+                case "21":
+                    result = "Tracteur agricole";
+                    break;
+                case "30":
+                    result = "Scooter <50cm3";
+                    break;
+                case "31":
+                    result = "Motocyclette > 50cm3 et <= 125 cm3";
+                    break;
+                case "32":
+                    result = "Scooter > 50cm3 et <= 125 cm3";
+                    break;
+                case "33":
+                    result = "Motocyclette > 125 cm3";
+                    break;
+                case "34":
+                    result = "Scooter > 125 cm3 ";
+                    break;
+                case "35":
+                    result = "Quad lourd <= 50 cm3 ";
+                    break;
+                case "36":
+                    result = "Quad lourd > 50 cm3 ";
+                    break;
+                case "37":
+                    result = "Autobus";
+                    break;
+                case "38":
+                    result = "Autocar";
+                    break;
+                case "39":
+                    result = "Train";
+                    break;
+                case "40":
+                    result = "Tramway";
+                    break;
+                default:
+                    result = "autre";
+                    break;
+            }
+
+            return result;
+        }
+
+        public static NbCategVoiture ReqCategVoiture(string annee)
+        {
+            string messErreur = "";
+            NbCategVoiture nbCategVoiture = new NbCategVoiture(annee);
+
+            messErreur = ConnexionToDataBase();
+
+            if (messErreur == "")
+            {
+                Command = GetConnexion().CreateCommand();
+                Command.CommandText = "SELECT count(*) as nbAcc, Catv as CategVehic " +
+                                      "FROM vehicule " +
+                                      "WHERE Num_Acc like '" + annee + "%' " +
+                                      "GROUP BY Catv; ";
+                DataReader = Command.ExecuteReader();
+                while (DataReader.Read())
+                {
+                    nbCategVoiture.GetlistCategVoiture().Add(new CategVoiture(DataReader[0].ToString(), GetCatu(DataReader[1].ToString())));
+                }
+                DataReader.Close();
+            }
+
+            DeConnexion(Connexion);
+
+            return nbCategVoiture;
         }
     }
 }

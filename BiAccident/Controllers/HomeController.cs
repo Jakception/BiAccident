@@ -27,5 +27,23 @@ namespace BiAccident.Controllers
             nbALV.ListNbAccidentLieux.Add(DataBase.ReqNbAccidentLieux("2010"));
             return View(nbALV);
         }
+        public ActionResult PageNbCategUser()
+        {
+            NbCategUserViewModels nbCTU = new NbCategUserViewModels();
+            nbCTU.ListNbCategUser.Add(DataBase.ReqCategUser("2015"));
+            nbCTU.ListNbCategUser.Add(DataBase.ReqCategUser("2014"));
+            nbCTU.ListNbCategUser.Add(DataBase.ReqCategUser("2013"));
+            nbCTU.ListNbCategUser.Add(DataBase.ReqCategUser("2012"));
+            nbCTU.ListNbCategUser.Add(DataBase.ReqCategUser("2011"));
+            nbCTU.ListNbCategUser.Add(DataBase.ReqCategUser("2010"));
+            return View(nbCTU);
+        }
+        public ActionResult PageNbCategVoiture()
+        {
+            NbCategVoitureViewModels nbCTV = new NbCategVoitureViewModels();
+            nbCTV.ListNbCategVoiture.Add(DataBase.ReqCategVoiture("2015"));
+            nbCTV.ListNbCategVoiture.Add(DataBase.ReqCategVoiture("2014"));
+            return View(nbCTV);
+        }
     }
 }

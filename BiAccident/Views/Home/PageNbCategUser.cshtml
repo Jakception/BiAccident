@@ -1,0 +1,41 @@
+﻿@model BiAccident.ViewModels.NbCategUserViewModels
+
+@{
+    ViewBag.Title = "PageNbCategUser";
+}
+
+<h2>Catégorie d'utilisateur</h2>
+
+<table class="table">
+    <tr>
+        <td>Année</td>
+        <td>Nombre d'accident</td>
+        <td>Catégorie</td>
+    </tr>
+    @foreach (var item in Model.ListNbCategUser)
+    {
+        <tr>
+            <td>
+                <b>
+                    @item.GetAnnee()
+                </b>
+            </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        foreach (var truck in item.GetListCategUser ())
+        {
+            <tr>
+                <td> </td>
+                <td>
+                    @truck.NbAcc
+                </td>
+                <td>
+                    @truck.Catu
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+

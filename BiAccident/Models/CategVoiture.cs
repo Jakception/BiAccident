@@ -5,10 +5,10 @@ using System.Web;
 
 namespace BiAccident.Models
 {
-    public class CategUser
+    public class CategVoiture
     {
         private string nbAcc;
-        private string catu;
+        private string catv;
 
         public string NbAcc
         {
@@ -23,23 +23,23 @@ namespace BiAccident.Models
             }
         }
 
-        public string Catu
+        public string Catv
         {
             get
             {
-                return catu;
+                return catv;
             }
 
             set
             {
-                catu = value;
+                catv = value;
             }
         }
 
-        public CategUser(string nbAcc, string catu)
+        public CategVoiture(string nbAcc, string catv)
         {
             this.NbAcc = nbAcc;
-            this.Catu = catu;
+            this.Catv = catv;
         }
     }
 }

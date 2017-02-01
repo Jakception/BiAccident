@@ -1,0 +1,40 @@
+﻿@model BiAccident.ViewModels.NbCategVoitureViewModels
+
+@{
+    ViewBag.Title = "PageNbCategVoiture";
+}
+
+<h2>Accident par catégorie de voiture</h2>
+
+<table class="table">
+    <tr>
+        <td>Année</td>
+        <td>Nombre d'accident</td>
+        <td>Catégorie</td>
+    </tr>
+    @foreach (var item in Model.ListNbCategVoiture)
+    {
+        <tr>
+            <td>
+                <b>
+                    @item.GetAnnee()
+                </b>
+            </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        foreach (var truck in item.GetlistCategVoiture())
+        {
+            <tr>
+                <td> </td>
+                <td>
+                    @truck.NbAcc
+                </td>
+                <td>
+                    @truck.Catv
+                </td>
+            </tr>
+        }
+    }
+
+</table>
