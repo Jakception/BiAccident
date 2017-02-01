@@ -339,7 +339,7 @@ namespace BiAccident.Models
                 DataReader = Command.ExecuteReader();
                 while (DataReader.Read())
                 {
-                    nbCategVoiture.GetlistCategVoiture().Add(new CategVoiture(DataReader[0].ToString(), GetCatu(DataReader[1].ToString())));
+                    nbCategVoiture.GetlistCategVoiture().Add(new CategVoiture(DataReader[0].ToString(), GetCatv(DataReader[1].ToString())));
                 }
                 DataReader.Close();
             }
